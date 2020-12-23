@@ -162,9 +162,7 @@ async function calculateReceiveAmount() {
       return
     }
     try {
-      const receiveAmount = toHumanizedCurrency(
-        (await READ_CONTRACT._getTokenAmount(inputAmountInWei)).div(1e9)
-      )
+      const receiveAmount = await READ_CONTRACT._getTokenAmount(inputAmountInWei).div(1e9)
       $('#receive-amount').val(receiveAmount)
     } catch (error) {
       console.error(error)
